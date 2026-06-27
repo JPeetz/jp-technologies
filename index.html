@@ -246,6 +246,18 @@
             margin-bottom: 12px;
         }
 
+        .product-image {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            object-fit: contain;
+        }
+
+        .product-featured .product-image {
+            width: 64px;
+            height: 64px;
+        }
+
         .product-card h3 {
             font-size: 20px; font-weight: 600;
             letter-spacing: -0.01em;
@@ -410,7 +422,7 @@
             <div class="products-grid">
                 <!-- FEATURED: BetterLife -->
                 <div class="product-card product-featured">
-                    <div class="product-icon">🔮</div>
+                    <img src="/public/images/betterlife-icon.png" alt="BetterLife" class="product-image">
                     <h3>BetterLife</h3>
                     <span class="status-pill">Live</span>
                     <p>iOS AI life coach powered by Claude. Structured cognitive behavioral therapy, habit tracking, and personalized coaching for neurodivergent individuals and high-performance teams. Multiple coach personas, cultural adaptation, crisis detection with regional hotline routing.</p>
@@ -419,7 +431,7 @@
 
                 <!-- RaceIntel -->
                 <div class="product-card">
-                    <div class="product-icon">🏇</div>
+                    <img src="/public/images/raceintel-logo.svg" alt="RaceIntel" class="product-image">
                     <h3>RaceIntel</h3>
                     <span class="status-pill">Live</span>
                     <p>AI-powered UK and Irish horse racing intelligence. 13-factor GG Score rankings, daily selections, pace simulation, and expert form analysis for every race.</p>
