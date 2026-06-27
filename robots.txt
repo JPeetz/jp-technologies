@@ -1,0 +1,99 @@
+# JP Technologies robots.txt
+# SEO and AI crawler optimization
+# Last updated: 2026-06-27
+
+# Allow all crawlers to index content
+User-agent: *
+Allow: /
+Allow: *.html
+Allow: *.css
+Allow: *.js
+Allow: /index.html
+Allow: /robots.txt
+Allow: /sitemap.xml
+Disallow: /*.json$
+Disallow: /private/
+Disallow: /.well-known/
+
+# Google bot optimization
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Bing bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Apple bot (Siri suggestions)
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+# AI crawler optimizations
+# Claude (Anthropic)
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 2
+Request-rate: 1/2s
+
+# ChatGPT crawler (OpenAI)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+Request-rate: 1/2s
+
+# Gemini crawler (Google DeepMind)
+User-agent: Gemini
+Allow: /
+Crawl-delay: 2
+Request-rate: 1/2s
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+Request-rate: 1/2s
+
+# Common social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+# General web crawlers
+User-agent: Mozilla/5.0 (compatible)
+Allow: /
+
+# Disallow bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap and feeds
+Sitemap: https://jptechnologies.dev/sitemap.xml
+Host: jptechnologies.dev
+
+# Crawl delay for others
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Geographic targeting (hint at regions of interest)
+# Global availability with optimized content for:
+# - North America (US, Canada)
+# - Europe (UK, DE, FR, NL, IE)
+# - Asia Pacific (SG, AU, JP, KR)

@@ -1,0 +1,35 @@
+{
+  "name": "jp-technologies",
+  "version": "1.0.0",
+  "description": "JP Technologies - AI-powered products for cognitive enhancement, productivity, and research",
+  "keywords": [
+    "AI",
+    "cognitive-enhancement",
+    "productivity",
+    "life-coaching",
+    "research",
+    "agent-platform",
+    "recipe-ai",
+    "portfolio"
+  ],
+  "author": "Joerg Peetz <j.peetz@outlook.ie>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "python3 -m http.server 8000"
+  },
+  "homepage": "https://jptechnologies.dev/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JPeetz/jp-technologies.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JPeetz/jp-technologies/issues",
+    "email": "j.peetz@outlook.ie"
+  },
+  "private": false
+}

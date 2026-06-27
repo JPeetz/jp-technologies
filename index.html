@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JP Technologies — Independent software studio. Builder of BetterLife, RaceIntel, AgentForge, Helix, and other AI-powered products.">
+    <meta name="keywords" content="AI, software, products, cognitive enhancement, racing intelligence, agent platform, research engine">
+    <meta name="author" content="Joerg Peetz">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="JP Technologies — Independent software studio">
+    <meta property="og:description" content="We build AI-powered products that matter. From life coaching to racing intelligence to agent platforms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jptechnologies.dev/">
+
+    <title>JP Technologies — Independent Software Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink:        #0c0d12;
+            --ink-2:      #14161f;
+            --surface:    #181b26;
+            --line:       #262a38;
+            --text:       #e6e7ec;
+            --muted:      #9498a7;
+            --faint:      #6b6f80;
+            --accent:     #8b5cf6;
+            --accent-2:   #a78bfa;
+            --accent-dim: #6d4ad1;
+            --r: 14px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--ink);
+            color: var(--text);
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: #fff; }
+
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+        .mono {
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-weight: 400;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(12, 13, 18, 0.72);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        header.scrolled { border-bottom-color: var(--line); }
+
+        .nav {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+
+        .brand {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--text);
+        }
+
+        .brand-name {
+            font-weight: 600; font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex; gap: 26px; align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted); text-decoration: none; font-size: 14px;
+            font-family: "JetBrains Mono", monospace;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            color: var(--accent-2) !important;
+            border: 1px solid var(--line);
+            padding: 7px 14px; border-radius: 8px;
+            transition: border-color 0.2s ease, background 0.2s ease !important;
+        }
+
+        .nav-cta:hover {
+            border-color: var(--accent-dim);
+            background: rgba(139, 92, 246, 0.08);
+        }
+
+        @media (max-width: 620px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            padding: 120px 0 96px;
+        }
+
+        .hero-grid-bg {
+            position: absolute; inset: 0; z-index: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 70% 60% at 30% 20%, #000 0%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 20%, #000 0%, transparent 75%);
+            opacity: 0.5;
+        }
+
+        .hero .wrap { position: relative; z-index: 1; }
+
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 9px;
+            font-family: "JetBrains Mono", monospace; font-size: 13px;
+            color: var(--muted); margin-bottom: 28px;
+            border: 1px solid var(--line); padding: 6px 13px; border-radius: 100px;
+            background: var(--ink-2);
+        }
+
+        .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5);
+            animation: pulse 2.4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.45); }
+            70% { box-shadow: 0 0 0 7px rgba(139, 92, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 76px);
+            line-height: 1.02; font-weight: 600;
+            letter-spacing: -0.03em; max-width: 16ch;
+            margin-bottom: 28px;
+        }
+
+        h1 .accent { color: var(--accent-2); }
+
+        .lede {
+            font-size: clamp(17px, 2.2vw, 21px);
+            color: var(--muted); max-width: 55ch; line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+        }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            text-decoration: none; font-size: 15px; font-weight: 500;
+            padding: 13px 22px; border-radius: 10px;
+            transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-2);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            color: var(--text);
+            border: 1px solid var(--line);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-1px);
+        }
+
+        .btn .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section { position: relative; }
+
+        .section-label {
+            font-family: "JetBrains Mono", monospace; font-size: 13px;
+            color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em;
+            display: flex; align-items: center; gap: 12px; margin-bottom: 36px;
+        }
+
+        .section-label::after {
+            content: ""; flex: 1; height: 1px; background: var(--line);
+        }
+
+        .divider { height: 1px; background: var(--line); }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products { padding: 96px 0; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            background: radial-gradient(120% 140% at 100% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 50%), var(--ink-2);
+            padding: 32px;
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent-dim);
+            background: radial-gradient(120% 140% at 100% 0%, rgba(139, 92, 246, 0.16) 0%, transparent 50%), var(--surface);
+        }
+
+        .product-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .product-card h3 {
+            font-size: 20px; font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .status-pill {
+            display: inline-block;
+            font-family: "JetBrains Mono", monospace; font-size: 12px;
+            color: var(--accent-2); border: 1px solid var(--accent-dim);
+            padding: 4px 10px; border-radius: 100px;
+            background: rgba(139, 92, 246, 0.07);
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            color: var(--muted); font-size: 15px;
+            line-height: 1.55; margin-bottom: 16px;
+        }
+
+        .product-card a {
+            color: var(--accent-2);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .product-card a:hover {
+            gap: 10px;
+        }
+
+        /* ===== FEATURED PRODUCT ===== */
+        .product-featured {
+            grid-column: 1 / -1;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+
+        .product-featured .product-icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .product-featured h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .product-featured p {
+            font-size: 16px;
+            max-width: 70ch;
+        }
+
+        /* ===== ECOSYSTEM SECTION ===== */
+        .ecosystem { padding: 96px 0; }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .ecosystem-item {
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            background: var(--ink-2);
+            padding: 24px;
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .ecosystem-item:hover {
+            border-color: var(--accent-dim);
+            background: var(--surface);
+        }
+
+        .ecosystem-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .ecosystem-item p {
+            color: var(--faint);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 64px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        footer a {
+            color: var(--accent-2);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 780px) {
+            .hero { padding: 80px 0 64px; }
+            .products { padding: 64px 0; }
+            .ecosystem { padding: 64px 0; }
+            .product-featured { padding: 32px; }
+            .products-grid { gap: 16px; }
+            .ecosystem-grid { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 28px;">
+                <a href="/" class="brand">
+                    <span class="brand-name">JP Technologies</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#ecosystem">Ecosystem</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://seo-api-nu.vercel.app/" class="nav-cta" target="_blank">Free Tools</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="wrap">
+            <span class="eyebrow">
+                <span class="dot"></span>
+                <span>Active Development</span>
+            </span>
+            <h1>Independent software <span class="accent">studio</span></h1>
+            <p class="lede">We build AI-powered products that solve real problems. From cognitive enhancement to racing intelligence to agent platforms. Every product is designed, built, and deployed end-to-end.</p>
+            <div class="hero-actions">
+                <a href="#products" class="btn btn-primary">Explore Products <span class="arrow">→</span></a>
+                <a href="https://seo-api-nu.vercel.app/" class="btn btn-ghost" target="_blank">Try Free Tools</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="wrap">
+            <div class="section-label">Products</div>
+
+            <div class="products-grid">
+                <!-- FEATURED: BetterLife -->
+                <div class="product-card product-featured">
+                    <div class="product-icon">🔮</div>
+                    <h3>BetterLife</h3>
+                    <span class="status-pill">Live</span>
+                    <p>iOS AI life coach powered by Claude. Structured cognitive behavioral therapy, habit tracking, and personalized coaching for neurodivergent individuals and high-performance teams. Multiple coach personas, cultural adaptation, crisis detection with regional hotline routing.</p>
+                    <a href="https://betterlife.care/" target="_blank">Visit BetterLife <span class="arrow">→</span></a>
+                </div>
+
+                <!-- RaceIntel -->
+                <div class="product-card">
+                    <div class="product-icon">🏇</div>
+                    <h3>RaceIntel</h3>
+                    <span class="status-pill">Live</span>
+                    <p>AI-powered UK and Irish horse racing intelligence. 13-factor GG Score rankings, daily selections, pace simulation, and expert form analysis for every race.</p>
+                    <a href="https://raceintel.vercel.app/" target="_blank">Launch RaceIntel <span class="arrow">→</span></a>
+                </div>
+
+                <!-- Trading Bot -->
+                <div class="product-card">
+                    <div class="product-icon">📈</div>
+                    <h3>Super Human Sol</h3>
+                    <span class="status-pill">Live</span>
+                    <p>AI-powered trading intelligence for Jupiter on Solana. Real-time market analysis, position optimization, and automated trading strategies.</p>
+                    <a href="https://super-human-sol-jupiter-tradig-bot.vercel.app/" target="_blank">Launch Bot <span class="arrow">→</span></a>
+                </div>
+
+                <!-- AgentForge -->
+                <div class="product-card">
+                    <div class="product-icon">⚙️</div>
+                    <h3>AgentForge</h3>
+                    <span class="status-pill">Active</span>
+                    <p>Distributed agent orchestration platform. Multi-provider LLM routing, real-time streaming, MCP server integration, visual dashboard for AI-native workflows.</p>
+                    <a href="https://agentforge-beta-three.vercel.app/" target="_blank">Explore <span class="arrow">→</span></a>
+                </div>
+
+                <!-- Helix -->
+                <div class="product-card">
+                    <div class="product-icon">🧬</div>
+                    <h3>Helix</h3>
+                    <span class="status-pill">Live</span>
+                    <p>AI-powered research engine combining SearXNG meta-search with Claude reasoning. Structured research with citations, subscription tiers, and Stripe billing.</p>
+                    <a href="https://vane.sytes.net/" target="_blank">Launch Helix <span class="arrow">→</span></a>
+                </div>
+
+                <!-- BiteSaver -->
+                <div class="product-card">
+                    <div class="product-icon">🍽️</div>
+                    <h3>BiteSaver</h3>
+                    <span class="status-pill">Coming Soon</span>
+                    <p>AI-powered recipe vault and meal planning system. Intelligent recommendations, dietary constraints, personalized cooking guidance for high-performance living.</p>
+                    <a href="#contact">Early Access <span class="arrow">→</span></a>
+                </div>
+
+                <!-- OpenClaw -->
+                <div class="product-card">
+                    <div class="product-icon">🔧</div>
+                    <h3>OpenClaw</h3>
+                    <span class="status-pill">Active</span>
+                    <p>Multi-channel agent control system. Telegram, Discord, web integrations. Built on Composio for composable AI-native tool access and workflow automation.</p>
+                    <a href="#contact">Learn More <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem">
+        <div class="wrap">
+            <div class="section-label">Knowledge Ecosystem</div>
+            <h2 style="font-size: clamp(26px, 3.5vw, 42px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 48px; max-width: 50ch;">Infrastructure powering every product</h2>
+
+            <div class="ecosystem-grid">
+                <div class="ecosystem-item">
+                    <h4>🧠 Memex Zero-RAG</h4>
+                    <p>Compiled knowledge wiki with zero-hallucination lookups. Powers all products with authoritative knowledge graphs.</p>
+                </div>
+
+                <div class="ecosystem-item">
+                    <h4>🗂️ Obsidian Vault</h4>
+                    <p>Persistent memory and knowledge organization. Session logs, learning patterns, decision rationale, strategic direction.</p>
+                </div>
+
+                <div class="ecosystem-item">
+                    <h4>📊 Code-Flow</h4>
+                    <p>Development workflow orchestration. Integration patterns, testing strategies, deployment automation, CI/CD pipelines.</p>
+                </div>
+
+                <div class="ecosystem-item">
+                    <h4>🔗 Agent Integration</h4>
+                    <p>Composio-based tool ecosystem. Plug-and-play APIs for AI agents across platforms and services.</p>
+                </div>
+
+                <div class="ecosystem-item">
+                    <h4>🛠️ Hermes Studio</h4>
+                    <p>Development environment and toolkit for agent-native applications. Workflow design, testing, and deployment.</p>
+                </div>
+
+                <div class="ecosystem-item">
+                    <h4>📈 SEO API</h4>
+                    <p>REST API for SEO analysis and geolocation optimization. Free tier available for developers and researchers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 96px 0; border-top: 1px solid var(--line);" id="contact">
+        <div class="wrap" style="text-align: center;">
+            <div class="section-label" style="justify-content: center; margin-bottom: 48px;">Contact</div>
+            <h2 style="font-size: clamp(32px, 4vw, 48px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 28px;">Let's talk</h2>
+            <p style="color: var(--muted); font-size: 16px; margin-bottom: 32px; max-width: 50ch; margin-left: auto; margin-right: auto;">Interested in collaboration, partnership, or early access to upcoming products?</p>
+            <a href="mailto:j.peetz@outlook.ie" class="btn btn-primary">Email me <span class="arrow">→</span></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <p><strong>JP Technologies</strong> — Independent software studio</p>
+            <p style="margin-top: 16px; color: var(--faint); font-size: 13px;">
+                We design and build our own products, end to end.
+                <br>
+                Based in <strong>Ireland</strong>. Available globally.
+            </p>
+            <p style="margin-top: 24px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://betterlife.care/" target="_blank">BetterLife</a>
+                <a href="https://raceintel.vercel.app/" target="_blank">RaceIntel</a>
+                <a href="https://agentforge-beta-three.vercel.app/" target="_blank">AgentForge</a>
+                <a href="https://vane.sytes.net/" target="_blank">Helix</a>
+                <a href="https://seo-api-nu.vercel.app/" target="_blank">SEO API</a>
+            </p>
+            <p style="margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--faint); font-size: 13px;">
+                © 2026 JP Technologies. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
