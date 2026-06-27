@@ -1,15 +1,4 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "outputDirectory": ".",
-  "framework": "static",
-  "regions": [
-    "sfo1",
-    "iad1",
-    "lhr1",
-    "fra1",
-    "sin1",
-    "syd1"
-  ],
   "headers": [
     {
       "source": "/(.*)",
