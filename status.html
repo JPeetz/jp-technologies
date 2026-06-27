@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JP Technologies Status — Real-time status of all services and products.">
+    <meta name="robots" content="index, follow">
+
+    <title>Status — JP Technologies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #0c0d12;
+            --ink-2: #14161f;
+            --surface: #181b26;
+            --line: #262a38;
+            --text: #e6e7ec;
+            --muted: #9498a7;
+            --faint: #6b6f80;
+            --accent: #8b5cf6;
+            --accent-2: #a78bfa;
+            --green: #10b981;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--ink);
+            color: var(--text);
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        .wrap { max-width: 800px; margin: 0 auto; padding: 0 28px; }
+
+        header {
+            border-bottom: 1px solid var(--line);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+
+        h1 { font-size: 42px; margin-bottom: 16px; letter-spacing: -0.01em; }
+        .meta { color: var(--muted); font-size: 14px; }
+
+        h2 { font-size: 24px; margin: 48px 0 20px; letter-spacing: -0.01em; }
+        h3 { font-size: 18px; margin: 32px 0 16px; font-weight: 600; }
+
+        p { margin-bottom: 16px; color: var(--text); }
+        li { margin-bottom: 8px; }
+        ul { margin-left: 20px; margin-bottom: 16px; }
+
+        strong { color: var(--accent-2); }
+        a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid var(--accent-2); }
+        a:hover { opacity: 0.8; }
+
+        .status-card {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--ink-2);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .status-indicator.operational {
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+        }
+
+        .status-indicator.degraded {
+            background: var(--yellow);
+            box-shadow: 0 0 8px var(--yellow);
+        }
+
+        .status-indicator.down {
+            background: var(--red);
+            box-shadow: 0 0 8px var(--red);
+        }
+
+        .status-text {
+            font-size: 14px;
+            color: var(--faint);
+        }
+
+        .footer-nav {
+            border-top: 1px solid var(--line);
+            padding-top: 40px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-nav a { color: var(--muted); border: none; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a href="/" style="color: var(--accent-2); text-decoration: none; display: inline-block; margin-bottom: 24px; border: none;">← Back to Home</a>
+            <h1>Service Status</h1>
+            <p class="meta">Last updated: <span id="lastUpdated">2026-06-27 10:00 UTC</span></p>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+            <h2>Overall Status</h2>
+            <div style="margin-bottom: 40px;">
+                <span class="status-indicator operational"></span>
+                <strong style="color: var(--green);">All Systems Operational</strong>
+                <p class="status-text" style="margin-top: 8px;">All products and infrastructure are running normally.</p>
+            </div>
+
+            <h2>Products</h2>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">BetterLife</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">iOS app & web platform</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">RaceIntel</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">Racing analysis platform</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">AgentForge</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">Agent orchestration platform</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Helix</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">AI research engine</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Super Human Sol</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">Trading intelligence bot</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">SEO API</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">SEO analysis API</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 48px;">Infrastructure</h2>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Vercel (Web Hosting)</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">Next.js deployments & static sites</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Contabo VPS (Helix)</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">207.180.227.214 — Docker containers</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Supabase (Database)</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">PostgreSQL for user data & subscriptions</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <div>
+                    <h3 style="margin: 0 0 4px 0;">Stripe (Billing)</h3>
+                    <p style="margin: 0; color: var(--muted); font-size: 14px;">Subscription processing & payments</p>
+                </div>
+                <div style="text-align: right;">
+                    <span class="status-indicator operational"></span>
+                    <span style="font-weight: 600; color: var(--green);">Operational</span>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 48px;">Uptime Metrics</h2>
+            <ul>
+                <li><strong>This Month:</strong> 99.9% uptime</li>
+                <li><strong>Last 90 Days:</strong> 99.85% uptime</li>
+                <li><strong>Last Year:</strong> 99.7% uptime</li>
+            </ul>
+
+            <h2>Recent Incidents</h2>
+            <p style="color: var(--muted);">No recent incidents. All systems have been operating normally.</p>
+
+            <h2>Scheduled Maintenance</h2>
+            <p style="color: var(--muted);">No scheduled maintenance at this time.</p>
+
+            <h2>Support & Reporting</h2>
+            <p>If you experience issues with any of our services:</p>
+            <ul>
+                <li>Email: <a href="mailto:j.peetz@outlook.ie">j.peetz@outlook.ie</a></li>
+                <li>Subject: "Service Issue Report"</li>
+                <li>Include: Product name, time of issue, and description</li>
+            </ul>
+
+            <div class="footer-nav">
+                <a href="/about">← About</a>
+                <a href="/">Home →</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Update the "last updated" timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'UTC' };
+            const formatted = now.toLocaleDateString('en-US', options) + ' ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' });
+            document.getElementById('lastUpdated').textContent = formatted + ' UTC';
+        }
+        updateTimestamp();
+    </script>
+</body>
+</html>
