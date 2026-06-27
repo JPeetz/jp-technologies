@@ -2,7 +2,6 @@
   "buildCommand": "echo 'Static site'",
   "outputDirectory": ".",
   "framework": "static",
-  "public": true,
   "regions": [
     "sfo1",
     "iad1",
@@ -32,44 +31,11 @@
           "value": "strict-origin-when-cross-origin"
         },
         {
-          "key": "Permissions-Policy",
-          "value": "accelerometer=(), camera=(), geolocation=(self), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-        },
-        {
           "key": "Cache-Control",
           "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
         }
       ]
-    },
-    {
-      "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        }
-      ]
-    },
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/seo",
-      "destination": "https://seo-api-nu.vercel.app/api/analyze"
-    }
-  ],
-  "env": [
-    "NEXT_PUBLIC_DOMAIN_NAME=jptechnologies.dev",
-    "NEXT_PUBLIC_AUTHOR_EMAIL=j.peetz@outlook.ie",
-    "NEXT_PUBLIC_ANALYTICS_ENABLED=true"
   ],
   "redirects": [
     {
