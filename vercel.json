@@ -1,5 +1,4 @@
 {
-  "projectName": "jp-technologies",
   "buildCommand": "echo 'Static site'",
   "outputDirectory": ".",
   "framework": "static",
