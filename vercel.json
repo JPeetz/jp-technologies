@@ -26,6 +26,32 @@
       ]
     }
   ],
+  "rewrites": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/gdpr-compliance",
+      "destination": "/gdpr-compliance.html"
+    },
+    {
+      "source": "/legal-notice",
+      "destination": "/legal-notice.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/status",
+      "destination": "/status.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/betterlife",
